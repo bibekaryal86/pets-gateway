@@ -6,6 +6,6 @@ server:
   # There’s no concept of context path in WebFlux so there’s no equivalent property
 
 routes_base_url:
-  pets_service: 'https://pets-service.appspot.com'
   pets_database: 'https://pets-database.appspot.com'
+  pets_service: 'https://pets-service.appspot.com'
   pets_authenticate: 'https://pets-authenticate.appspot.com'
