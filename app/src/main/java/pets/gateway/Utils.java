@@ -25,27 +25,22 @@ public class Utils {
   }
 
   private static String getPetsServiceAuthConfig() {
-    String username =
-        System.getProperty(BASIC_AUTH_USR_PETSSERVICE) != null
-            ? System.getProperty(BASIC_AUTH_USR_PETSSERVICE)
-            : System.getenv(BASIC_AUTH_USR_PETSSERVICE);
-    String password =
-        System.getProperty(BASIC_AUTH_PWD_PETSSERVICE) != null
-            ? System.getProperty(BASIC_AUTH_PWD_PETSSERVICE)
-            : System.getenv(BASIC_AUTH_PWD_PETSSERVICE);
-    String authorization = username + ":" + password;
-    return "Basic " + getEncoder().encodeToString(authorization.getBytes());
+    return getString(BASIC_AUTH_USR_PETSSERVICE, BASIC_AUTH_PWD_PETSSERVICE);
   }
 
   private static String getPetsDatabaseAuthConfig() {
+    return getString(BASIC_AUTH_USR_PETSDATABASE, BASIC_AUTH_PWD_PETSDATABASE);
+  }
+
+  private static String getString(String basicAuthUsr, String basicAuthPwd) {
     String username =
-        System.getProperty(BASIC_AUTH_USR_PETSDATABASE) != null
-            ? System.getProperty(BASIC_AUTH_USR_PETSDATABASE)
-            : System.getenv(BASIC_AUTH_USR_PETSDATABASE);
+        System.getProperty(basicAuthUsr) != null
+            ? System.getProperty(basicAuthUsr)
+            : System.getenv(basicAuthUsr);
     String password =
-        System.getProperty(BASIC_AUTH_PWD_PETSDATABASE) != null
-            ? System.getProperty(BASIC_AUTH_PWD_PETSDATABASE)
-            : System.getenv(BASIC_AUTH_PWD_PETSDATABASE);
+        System.getProperty(basicAuthPwd) != null
+            ? System.getProperty(basicAuthPwd)
+            : System.getenv(basicAuthPwd);
     String authorization = username + ":" + password;
     return "Basic " + getEncoder().encodeToString(authorization.getBytes());
   }
