@@ -32,7 +32,6 @@ dependencies {
     def springVersion = "3.0.5"
     implementation 'org.springframework.cloud:spring-cloud-starter-gateway:4.0.4'
     implementation "org.springframework.boot:spring-boot-starter-actuator:$springVersion"
-    implementation "org.springframework.boot:spring-boot-starter-tomcat:$springVersion"
     implementation "org.springframework.boot:spring-boot-starter-webflux:$springVersion"
 
     implementation 'io.micrometer:micrometer-tracing-bridge-otel:1.0.4'
@@ -49,7 +48,6 @@ application {
 configurations {
     implementation.exclude module: 'spring-boot-starter-logging'
     implementation.exclude group: 'org.apache.logging.log4j', module: 'log4j-to-slf4j'
-    implementation.exclude group: 'org.springframework.boot', module: 'spring-boot-starter-netty'
 }
 
 spotless {
