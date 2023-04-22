@@ -10,7 +10,7 @@ plugins {
     id 'java'
     id 'application'
     id 'io.freefair.lombok' version '8.0.1'
-    id 'org.springframework.boot' version '3.0.5'
+    id 'org.springframework.boot' version '3.0.6'
     id 'com.diffplug.spotless' version '6.18.0'
 }
 
@@ -29,14 +29,14 @@ bootJar {
 }
 
 dependencies {
-    def springVersion = "3.0.5"
+    def springVersion = "3.0.6"
     implementation 'org.springframework.cloud:spring-cloud-starter-gateway:4.0.4'
     implementation "org.springframework.boot:spring-boot-starter-actuator:$springVersion"
     implementation "org.springframework.boot:spring-boot-starter-webflux:$springVersion"
 
     implementation 'io.micrometer:micrometer-tracing-bridge-otel:1.0.4'
-    implementation 'ch.qos.logback:logback-classic:1.4.6'
-    implementation 'ch.qos.logback:logback-core:1.4.6'
+    implementation 'ch.qos.logback:logback-classic:1.4.7'
+    implementation 'ch.qos.logback:logback-core:1.4.7'
     implementation 'javax.xml.bind:jaxb-api:2.3.1'
     implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
 }
