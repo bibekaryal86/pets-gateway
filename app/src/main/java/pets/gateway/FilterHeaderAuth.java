@@ -88,11 +88,11 @@ public class FilterHeaderAuth implements GatewayFilter {
         oldToken = oldToken.replace("Bearer ", "");
 
         Claims claims =
-            Jwts.parserBuilder()
-                .setSigningKey(getSecretKey())
+            Jwts.parser()
+                .verifyWith(getSecretKey())
                 .build()
-                .parseClaimsJws(oldToken)
-                .getBody();
+                .parseSignedClaims(oldToken)
+                .getPayload();
 
         expirationDate = claims.getExpiration();
 
